@@ -1,1 +1,2 @@
 # Premier-League-predictor
+This project is an English Premier League (EPL) match predictor that utilizes various regression algorithms to predict the outcomes of the matchups. By parsing data from kaggle API, the program uses exploratory data analysis to weigh multiple factors including home win percentage, goal average, and team form. 
