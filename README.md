@@ -12,3 +12,21 @@ Prediction Algorithm: A RandomForestClassifier from scikit-learn is used to pred
 Flask Web App: The predictor is built as a web application where users can input two teams, and the model will predict the result of the matchup.
 
 Interactive Interface: Users can interact with the app via a simple and intuitive web interface to select teams and view predictions.
+
+How to Run
+
+Prerequisites
+You can install the required dependencies by running:
+
+pip install requirements.txt
+
+Then run the program with:
+
+python main.py
+
+
+Access the Web Interface:
+
+Open your web browser and navigate to http://localhost:8080.
+
+Select two teams from the dropdown and predict the match result.
