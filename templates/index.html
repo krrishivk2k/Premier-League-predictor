@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Match Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Premier League Match Predictor</h1>
+        <form method="POST">
+            <label for="home_team">Home Team:</label>
+            <select id="home_team" name="home_team" required>
+                <option value="" disabled selected>Select Home Team</option>
+                {% for team in teams %}
+                <option value="{{ team }}" {% if team == home_team %}selected{% endif %}>{{ team }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="away_team">Away Team:</label>
+            <select id="away_team" name="away_team" required>
+                <option value="" disabled selected>Select Away Team</option>
+                {% for team in teams %}
+                <option value="{{ team }}" {% if team == away_team %}selected{% endif %}>{{ team }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Predict Match Result</button>
+        </form>
+        
+        {% if result %}
+            <h2>Predicted Result: {{ result }}</h2>
+            <p>
+                {% if result == 'H' %}
+                Home Win ({{ home_team }})
+                {% elif result == 'A' %}
+                Away Win ({{ away_team }})
+                {% else %}
+                Draw
+                {% endif %}
+            </p>
+        {% endif %}
+    </div>
+</body>
+</html>
