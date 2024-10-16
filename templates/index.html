@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier League Match Predictor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -28,7 +28,7 @@
 
             <button type="submit">Predict Match Result</button>
         </form>
-        
+
         {% if result %}
             <h2>Predicted Result: {{ result }}</h2>
             <p>
@@ -40,6 +40,22 @@
                 Draw
                 {% endif %}
             </p>
+        {% endif %}
+
+        {% if plot_url %}
+            <h2>Match Statistics</h2>
+            <div class="graph-container">
+                <img src="data:image/png;base64,{{ plot_url }}" alt="Team Comparison Graphs">
+            </div>
+            <p><strong>Graph Descriptions:</strong></p>
+            <ul>
+                <li><strong>Home vs. Away Goals:</strong> Comparison of average goals scored by home and away teams in recent matches.</li>
+                <li><strong>Home vs. Away Shots:</strong> Average number of shots taken by both teams.</li>
+                <li><strong>Home vs. Away Corners:</strong> Comparison of average corners earned by the teams.</li>
+                <li><strong>Home vs. Away Fouls:</strong> Average fouls committed by home and away teams.</li>
+                <li><strong>Home vs. Away Yellow Cards:</strong> Number of yellow cards received by both teams.</li>
+                <li><strong>Home vs. Away Red Cards:</strong> Comparison of red cards between the teams.</li>
+            </ul>
         {% endif %}
     </div>
 </body>
